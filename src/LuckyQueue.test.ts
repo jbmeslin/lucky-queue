@@ -59,6 +59,7 @@ test('If capacity is exceeded it should raise an event OnCapacityExceeded' , ()=
     lq.enqueue({foo: 'lucky' , bar: 'crush'})
 
     expect(listener).toBeCalled()
+    expect(lq.length).toBe(1)
 })
 
 test('it should provide an onCapacityExceeded function  ' , ()=> {
@@ -69,6 +70,8 @@ test('it should provide an onCapacityExceeded function  ' , ()=> {
     lq.enqueue({foo: 'hello' , bar: 'world'})
     lq.enqueue({foo: 'lucky' , bar: 'crush'})
     expect(listener).toBeCalled()
+    expect(lq.length).toBe(1)
+
 })
 
 test('I can get my enqueue rate per ms ' , async ()=> {
